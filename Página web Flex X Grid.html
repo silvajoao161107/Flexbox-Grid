@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width-device-width, initial scale=1.0"/>
+    <title>Layout com Grid e Flexbox</title>
+    <style>
+        
+        body {
+            margin: 0;
+            height: 100vh;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            grid-template-columns: auto 1fr;
+            grid-template-areas:
+                "header header"
+                "nav main"
+                "footer footer";
+            font-family: sans-serif;
+        }
+        
+        header {
+            grid-area: header;
+            background-color: #4A90E2;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        nav {
+            grid-area: nav;
+            background-color: #F5A623;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            padding: 0.5rem;
+            gap: 0.5rem;
+            overflow-y: auto;
+            max-height: 100%;
+            min-width: max-content; /* faz o menu ocupar só o necessário */             
+        }
+        
+        nav a {
+            background-color: #F8E71C;
+            padding: 0.75rem;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            border-radius: 5px;
+            white-space: nowrap; /* impede quebra de linha */
+        }
+
+        main {
+            grid-area: main;
+            background-color: #7ED321;
+            padding: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-content: flex-start;
+        }
+
+        .card {
+            background-color: #BD10E0;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            flex: 1 1 200px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        footer {
+            grid-area: footer;
+            background-color: #333
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }        
+   </style>
+</head>
+<body>
+
+    <header>
+        <h1>Cabeçalho</h1>   
+    </header>
+
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Serviços</a>
+        <a href="#">Produtos</a>
+        <a href="#">Contato</a>
+        <a href="#">Ajuda</a>
+    </nav>
+
+    <main>
+        <div class="card">Card 1</div>
+        <div class="card">Card 2</div>
+        <div class="card">Card 3</div>
+        <div class="card">Card 4</div>
+    </main>
+
+    <footer>
+        <p>Rodapé © 2026</p>
+    </footer>
+
+</body>
+</html>
